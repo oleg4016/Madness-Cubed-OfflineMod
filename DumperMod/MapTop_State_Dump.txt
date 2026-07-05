@@ -1,0 +1,42 @@
+==========================================================
+  СОСТОЯНИЕ МЕНЮ КАРТОТОПА НА ДАННЫЙ МОМЕНТ
+==========================================================
+
+[КЛАСС]: MaptopOnlineTab (Вкладка Топа Карт)
+--- ПЕРЕМЕННЫЕ ---
+[UIScrollView] container = Scroll View (UIScrollView)
+[DayToggle] daytoggle = rate_tooggle (DayToggle)
+[TopInfo[]] items = kube.data.TopInfo[]
+[Boolean] valid = True
+[Single] fullUpdate = 0
+[Int32] numGamesWithFriends = 0
+[GameObject] itemPrefab = MaptopItem (UnityEngine.GameObject)
+[Dictionary`2] _hash = System.Collections.Generic.Dictionary`2[System.Int32,UnityEngine.GameObject]
+
+==========================================================
+  ИНСТРУКЦИЯ: КАК ПОЧИНИТЬ КАРТОТОП В МОДЕ (UltimateOfflineMod)
+==========================================================
+Оригинальный скрипт MapTop.cs парсит JSON по таким правилам:
+1. id         (int)    - Уникальный ID записи в топе
+2. mapid      (long)   - Уникальный номер карты (с минусом = встроенные)
+3. name       (string) - Название карты
+4. type       (int)    - Режим игры (0=Творчество, 1=Шутер, 2=Команды, 3=Выживание, 4=Команды...)
+5. canbreak   (int)    - Можно ли ломать блоки (1=Да, 0=Нет)
+6. daytime    (int)    - Время суток (1=День, 0=Ночь, 2=Смена)
+7. hits       (int)    - Количество лайков/посещений
+
+[ПРИМЕР РАБОЧЕГО JSON ДЛЯ ЗАПРОСА 800 и 801]:
+{
+  "price": 10,
+  "items": [
+    {
+      "id": 1,
+      "mapid": -1,
+      "name": "Легендарная Арена",
+      "type": 2,
+      "canbreak": 0,
+      "daytime": 1,
+      "hits": 9999
+    }
+  ]
+}

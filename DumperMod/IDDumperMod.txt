@@ -1,0 +1,94 @@
+using System;
+using System.IO;
+using MelonLoader;
+using UnityEngine;
+using kube;
+using kube.data;
+
+[assembly: MelonInfo(typeof(MadnessCubedOffline.IDDumperMod), "Madness Cubed ID Dumper", "1.0", "Modder")]
+[assembly: MelonGame("nobodyshot", "Madness Cubed")]
+
+namespace MadnessCubedOffline
+{
+    public class IDDumperMod : MelonMod
+    {
+        private bool isDumped = false;
+
+        public override void OnUpdate()
+        {
+            // Ждем, пока игра загрузит все ресурсы, скрипты и локализацию
+            if (!isDumped && Kube.IS != null && Kube.IS.weaponParams != null && Kube.OH != null && Localize.weaponNames != null)
+            {
+                DumpAllIDs();
+                isDumped = true;
+            }
+        }
+
+        private void DumpAllIDs()
+        {
+            string path = Path.Combine(Environment.CurrentDirectory, "All_Game_IDs.txt");
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine("=========================================");
+                writer.WriteLine("       ОРУЖИЕ (Weapons - Type 4)");
+                writer.WriteLine("=========================================");
+                for (int i = 0; i < Kube.IS.weaponParams.Length; i++)
+                {
+                    try {
+                        string name = Localize.weaponNames.Length > i ? Localize.weaponNames[i] : "Неизвестно";
+                        writer.WriteLine($"ID: {i} | Оружие: {name}");
+                    } catch {}
+                }
+
+                writer.WriteLine("\n=========================================");
+                writer.WriteLine(" ПРЕДМЕТЫ / ТРАНСПОРТ / БЛОКИ (Items - Type 3)");
+                writer.WriteLine("=========================================");
+                for (int i = 0; i < Kube.IS.itemDesc.Length; i++)
+                {
+                    try {
+                        string name = Localize.gameItemsNames.Length > i ? Localize.gameItemsNames[i] : "Неизвестно";
+                        string category = Kube.IS.itemDesc[i].page.ToString(); // Покажет "Transport", "Decor" и т.д.
+                        writer.WriteLine($"ID: {i} | Предмет: {name} | Вкладка: {category}");
+                    } catch {}
+                }
+
+                writer.WriteLine("\n=========================================");
+                writer.WriteLine("              МОНСТРЫ");
+                writer.WriteLine("=========================================");
+                if (Kube.OH.monsterPrefabName != null)
+                {
+                    for (int i = 0; i < Kube.OH.monsterPrefabName.Length; i++)
+                    {
+                        try {
+                            writer.WriteLine($"ID: {i} | Префаб монстра: {Kube.OH.monsterPrefabName[i]}");
+                        } catch {}
+                    }
+                }
+
+                writer.WriteLine("\n=========================================");
+                writer.WriteLine("   СПЕЦПРЕДМЕТЫ / ДЖЕТПАК (Spec - Type 7)");
+                writer.WriteLine("=========================================");
+                for (int i = 0; i < Kube.IS.specItemDesc.Length; i++)
+                {
+                    try {
+                        string name = Localize.specItemsName.Length > i ? Localize.specItemsName[i] : "Неизвестно";
+                        writer.WriteLine($"ID: {i} | Спецпредмет: {name}");
+                    } catch {}
+                }
+                
+                writer.WriteLine("\n=========================================");
+                writer.WriteLine("   ОДЕЖДА (Clothes - Type 9) и СКИНЫ");
+                writer.WriteLine("=========================================");
+                for (int i = 0; i < Localize.clothesName.Length; i++)
+                {
+                    try { writer.WriteLine($"ID: {i} | Одежда: {Localize.clothesName[i]}"); } catch {}
+                }
+            }
+
+            MelonLogger.Msg("=====================================================");
+            MelonLogger.Msg("УСПЕШНО! Все ID игры сохранены в текстовый файл:");
+            MelonLogger.Msg(path);
+            MelonLogger.Msg("=====================================================");
+        }
+    }
+}

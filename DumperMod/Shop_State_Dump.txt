@@ -1,0 +1,69 @@
+==========================================================
+  СОСТОЯНИЕ МАГАЗИНА И ИНТЕРФЕЙСА НА ДАННЫЙ МОМЕНТ
+==========================================================
+Баланс игрока: 667929251 Баксов | 597 Золота
+
+==========================================================
+  АКТИВНЫЕ МЕНЮ МАГАЗИНА В ПАМЯТИ
+==========================================================
+
+[ОТКРЫТОЕ МЕНЮ]: MenuCharScript (Объект: characterType3)
+--- ПЕРЕМЕННЫЕ ---
+
+[ОТКРЫТОЕ МЕНЮ]: MainMenu (Объект: mainmenu)
+--- ПЕРЕМЕННЫЕ ---
+[GameObject] roomCharacter = characterType3 (UnityEngine.GameObject)
+[BonusDayDialog] daily_dialog = dialog_daily (BonusDayDialog)
+[HeadPanel] head = head (HeadPanel)
+[GameObject] home = home_menu (UnityEngine.GameObject)
+[GameObject] loadingPrefab = LoadingWait (UnityEngine.GameObject)
+
+[ОТКРЫТОЕ МЕНЮ]: MenuPanel (Объект: knopki)
+--- ПЕРЕМЕННЫЕ ---
+[UIButton[]] btn = UIButton[]
+[GameObject[]] tab = UnityEngine.GameObject[]
+[Boolean] isUpdate = True
+
+[ОТКРЫТОЕ МЕНЮ]: HomeMenu (Объект: home_menu)
+--- ПЕРЕМЕННЫЕ ---
+[ViralDialog] viral_dialog = dialog_viral (ViralDialog)
+[UIButton] viral = ViralButton (UIButton)
+[GameObject] homeBtn = null
+[UIInput] nickname = Input (UIInput)
+[Rank] rank = Rank (Rank)
+[UIGrid] offers = Offers (UIGrid)
+[UIGrid] tasks = Tasks (UIGrid)
+[GameObject] offerPrefab = OfferItem (UnityEngine.GameObject)
+[GameObject] packPrefab = PackItem (UnityEngine.GameObject)
+[GameObject] taskPrefab = TaskItem (UnityEngine.GameObject)
+[GameObject] boxPrefab = MenuBoxItem (UnityEngine.GameObject)
+[GameObject[]] offer_dialog = UnityEngine.GameObject[]
+[GameObject] upgrade_dialog = null
+[UILabel] version = VersionLabel (UILabel)
+
+==========================================================
+  ПРОВЕРКА ЦЕН В GameParamsScript (GPS)
+==========================================================
+Цена первого блока (ID 0): 20 баксов / 0 золота
+Цена первого оружия (ID 0): 0 баксов / 0 золота
+Цена первого скина (ID 0): 0 баксов / 0 золота
+
+==========================================================
+  ИНСТРУКЦИЯ: КАК ОБНОВИТЬ ИНТЕРФЕЙС ПОСЛЕ ПОКУПКИ В МОДЕ
+==========================================================
+В оригинале игра использует систему сообщений Unity (SendMonoMessage), чтобы убрать замок с кнопки после покупки.
+Если вы перехватываете покупку (Prefix) и возвращаете false, вы ОБЯЗАНЫ сами послать этот сигнал, иначе кнопка не обновится!
+
+1. После покупки Оружия вызывайте:
+   kube.Kube.SendMonoMessage("WeaponsUpdate");
+
+2. После покупки Блоков, Декора или Спецпредметов:
+   kube.Kube.SendMonoMessage("ItemsCubesUpdate");
+
+3. После покупки Одежды или Скинов:
+   kube.Kube.SendMonoMessage("UpdateChar");
+   if (kube.Kube.IS.ps != null) kube.Kube.IS.ps.SendMessage("PlayerDressSkin");
+
+4. После обмена валюты в Банке (чтобы обновились циферки денег вверху экрана):
+   // Если вы перехватили GoldToMoney:
+   go.SendMessage(method, "0^0^" + Kube.GPS.playerMoney1 + "^" + Kube.GPS.playerMoney2);

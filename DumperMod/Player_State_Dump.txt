@@ -1,0 +1,319 @@
+==========================================================
+  СОСТОЯНИЕ ИГРОКА (PlayerScript) НА ДАННЫЙ МОМЕНТ
+==========================================================
+
+==========================================================
+  ПОДОЗРИТЕЛЬНЫЕ ПЕРЕМЕННЫЕ (Искать баги здесь!)
+==========================================================
+Если вы не можете двигаться, проверьте эти флаги:
+dead (Мертв ли игрок?): False
+paused (Игра на паузе?): False
+freezed (Игрок заморожен?): False
+onlyMove (Заблокирована камера?): False
+isDriveTransport (В транспорте?): False
+Kube.OH.emptyScreen (Блок мыши): False
+Cursor.visible (Курсор на экране?): True
+Cursor.lockState (Состояние курсора): None
+
+==========================================================
+  ПОКАЗАТЕЛИ ЗДОРОВЬЯ И БОЯ
+==========================================================
+Координаты (Position): (75.0, 35.6, 71.0)
+Здоровье (health): 170 / 170
+Броня (armor): 390 / 390
+Очки/Фраги/Убийства: points=0, frags=0, kills=0
+
+==========================================================
+  ОРУЖИЕ В РУКАХ
+==========================================================
+currentWeapon (ID текущего оружия): 14
+Патроны в запасе: 100
+Патроны в обойме: 0
+Перезаряжается ли сейчас? (rechargingWeapon): False
+
+==========================================================
+  ПОЛНЫЙ ДАМП ВСЕХ ПЕРЕМЕННЫХ КЛАССА PlayerScript
+==========================================================
+[PlayerConfig] playerConfig = PlayerConfigObject (PlayerConfig)
+[String] animIdleEmpty = standEmpty
+[String] animIdleSword = standSword
+[String] animIdleWeapon = standWeapon2
+[String] animRunEmpty = runEmpty
+[String] animRunSword = runSword
+[String] animRunWeapon = runWeapon2
+[String] animRunLeftEmpty = RunLeft
+[String] animRunRightEmpty = RunRight
+[String] animRunLeftSword = RunLeftSword
+[String] animRunRightSword = RunRightSword
+[String] animRunLeftWeapon = runLeftWeapon2
+[String] animRunRightWeapon = runRightWeapon2
+[String] animAction = 
+[String[]] animSwordAttack = [Массив из 3 элементов]
+[String] animWeaponShoot = WeaponShot2
+[String[]] animDecor = [Массив из 8 элементов]
+[String] animQuadroSit = quadroSit
+[String] weaponRechargeBeginAnim = RechargeWeaponBegin
+[String] weaponRechargeEndAnim = RechargeWeaponEnd
+[Int32] _skybox = 0
+[Single] _nextCreatingRepeat = 0
+[Single] fallDamage = 30
+[ObscuredFloat] runSpeed = 7.9
+[ObscuredFloat] runSpeedBonus = 0.9
+[ObscuredFloat] jumpSpeed = 8.75
+[ObscuredFloat] jumpSpeedBonus = 2.5
+[Single] nextJump = 0
+[CharacterController] controller = characterType3(Clone) (UnityEngine.CharacterController)
+[NetworkObjectScript] NO = NetworkObject(Clone) (NetworkObjectScript)
+[Int32] type = 0
+[Single] sensitivityX = 4.52657
+[Single] sensitivityY = 4.52657
+[Single] minimumY = -90
+[Single] maximumY = 90
+[Single] rotationY = 0
+[Single] rotationX = 0
+[Single] newRotationY = 0
+[Single] newRotationX = 0
+[Camera] cameraComp = Main Camera (UnityEngine.Camera)
+[GameObject] skin = PM3D_1234 (UnityEngine.GameObject)
+[GameObject] bones = Bip01 (UnityEngine.GameObject)
+[GameObject] weaponObjCamera = WeaponObj (UnityEngine.GameObject)
+[GameObject] weaponObjHand = WeaponObjHand (UnityEngine.GameObject)
+[GameObject] weaponGO = Бензопила(Clone) (UnityEngine.GameObject)
+[WeaponScript] weaponGOScript = Бензопила(Clone) (WeaponScript)
+[Vector3] crackingPos = (0.0, 0.0, 0.0)
+[Single] crackingStartTime = 0
+[Single] crackingTime = 0
+[Boolean] paused = False
+[Boolean] onlyMove = False
+[Transform] flagHolder = FlagHolder (UnityEngine.Transform)
+[Boolean] carryingTheFlag = False
+[Int32] numCarryingFlag = 0
+[Boolean] rechargingWeapon = False
+[Int32] rechargingWeaponType = 0
+[Single] rechargingWeaponStart = 0
+[Int32] _availableCubes = 27822
+[GameObject] gameObjectToDelete = null
+[Bullets] bullets = PlayerScript+Bullets
+[Clips] clips = PlayerScript+Clips
+[WeaponParamsObj] currentWeapon = 14 (WeaponParamsObj)
+[Int32] onlineId = 1002
+[Int32] serverId = 512
+[String] sn = steam
+[GameObject] ragdoll = characterType3RagDoll (UnityEngine.GameObject)
+[Int32] maxArmor = 390
+[Int32] maxArmorBonus = 240
+[Single] painAlpha = 0
+[ObscuredFloat] reduceDamage = 0.27
+[ObscuredFloat] reduceDamageBonus = 0.12
+[Int32] pointsForKillMe = 10
+[Int32] deadTimes = 0
+[LastShotTime] lastShotTimeNew = PlayerScript+LastShotTime
+[ObscuredInt] _kills = 27922
+[ObscuredInt] _frags = 0
+[ObscuredInt] _points = 27922
+[Boolean] canBuild = False
+[Boolean] canBuildBlock = False
+[String] playerName = [122FAA]_03_45_52_55[808080][SDK]
+[String] chatMessage = 
+[ObscuredInt] _playerSkin = 27916
+[String[]] weaponAnim1face = [Массив из 74 элементов]
+[String] changeWeaponAnim = charNewWeapon1face
+[Single] stepDeltaTime = 0.3
+[Single] lastStepTime = 0
+[GameObject] survivalRespawnPrefab = SurvivalRespawn (UnityEngine.GameObject)
+[GameObject] rankPlane = Plane (UnityEngine.GameObject)
+[GameObject] survivalRespawnGO = null
+[ObscuredInt] _level = 27071
+[ObscuredInt] _health3 = 27752
+[ObscuredInt] _maxHealth = 27752
+[Int32] maxHealthBonus = 0
+[Int32] _armor = 27532
+[Int32] team = -1
+[Boolean] jetPackOn = True
+[Boolean] jetPackWork = False
+[Single] jetPackFuel = 1
+[GameObject] jetPackGO = jetPack (UnityEngine.GameObject)
+[Int32] constantsCash = 619
+[Camera] playerView = CamFPS (UnityEngine.Camera)
+[Single] _nextItemUse = 0
+[Transform] _neck = Bip01 Neck (UnityEngine.Transform)
+[String] uid = OfflinePlayer
+[GameObject] _targetCursor = null
+[GameObject] _targetCube = null
+[GameObject] _targetPlane = null
+[Boolean] initialized = True
+[Boolean] jetPackEnabled = True
+[Animation] _anim = characterType3(Clone) (UnityEngine.Animation)
+[Dictionary`2] _weaponPickup = System.Collections.Generic.Dictionary`2[System.Int32,System.Int32]
+[Dictionary`2] inventarItems = System.Collections.Generic.Dictionary`2[System.Int32,PlayerScript+InventarItems]
+[Boolean] grounded = True
+[ObscuredVector3] velocity = (0.0, 0.0, 0.0)
+[Single] forwardRun = 0
+[Single] sideRun = 0
+[Single] rotateDirMax = 20
+[Single] rotateSensivity = 10
+[Boolean] view3face = False
+[Boolean] _rifleAim = False
+[Boolean] moveItem = False
+[GameObject] gameObjectToMove = null
+[Single] deadTime = 0
+[Boolean] controlLeft = False
+[Boolean] controlRight = False
+[Boolean] controlForward = False
+[Boolean] controlBackward = False
+[CubePhys] currentTypePhysFloor = solid
+[CubePhys] typePhys = air
+[List`1] hud = System.Collections.Generic.List`1[kube.ui.DrawCall]
+[Int32] _geom = 0
+[Int32[]] geometryIds = [Массив из 15 элементов]
+[Int32] MAX_GEOM = 15
+[Single] GROUND_FRICTION = 35
+[Single] GROUND_ACCELERATE = 10
+[Single] _SafeFallVelocity = 18.75
+[Single] nextEnvDamage = 0
+[Light] _light = Directional light (UnityEngine.Light)
+[Single] _nextWheeel = 0
+[Transform] headTransform = Bip01 Head (UnityEngine.Transform)
+[Transform] rightHandTransform = Bip01 R Clavicle (UnityEngine.Transform)
+[Vector3] lastPos = (0.0, 0.0, 0.0)
+[Single] lastMonstersStartle = 0
+[Single] monstersStartleDeltaTime = 3
+[Int32] guiItemText = 0
+[Int32[]] charMovesNums = null
+[Boolean] isDriveTransport = False
+[TransportScript] transportToDriveScript = null
+[Int32] transportToDrivePlace = 0
+[String] playerClothes = 25;33;71;44;12;74;78;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1
+[Single] showFastInventoryTime = 12.95647
+[FastInventar[]] _inventory = [Массив из 12 элементов]
+[Int32] currentWeaponSkin = -1
+[Boolean] _autoFire = False
+[Single] _flashTime = 0
+[Texture2D] DrawFlashTx = null
+[Single] survivalRespawnTime = 0
+[Transform] _ragDollTrans = null
+[Boolean] _canRespawn = False
+[Int32] killedWithoutDeath = 0
+[Int32] killedMultiTimes = 0
+[Single] killedMultiTimesLastTime = 0
+[Single] killedMultiTimesMaxDeltaTime = 1.5
+[Vector3] correctPlayerPos = (-10000.0, -10000.0, 0.0)
+[Quaternion] correctPlayerRot = (0.0, 0.0, 0.0, 1.0)
+[Single] lastSendProps = 0
+[Single] lastPingTime = 0
+[Single] currentPing = 0
+[Boolean] freezed = False
+[Int32] codeVarsRandom = 0
+[Int32] _availableCubes2 = 0
+[Int32] _health2 = 0
+[Int32] _maxHealth2 = 0
+[Int32] _armor2 = 0
+[Int32] _kills2 = 0
+[Int32] _points2 = 0
+[Int32] _playerSkin2 = 0
+[Int32] _level2 = 0
+[Int32] _frags2 = 0
+[Int32[]] _bullets2 = [Массив из 12 элементов]
+[Int32[]] _clips2 = [Массив из 128 элементов]
+[Single[]] _lastShotTimeNew2 = [Массив из 128 элементов]
+[Vector3] pushVelocity = (0.0, 0.0, 0.0)
+[Int32] keymask = 0
+[Boolean] dead = False
+
+==========================================================
+  ГЛОБАЛЬНЫЕ СТАТЫ (GameParamsScript)
+==========================================================
+[Int32] maxPlayersLimit = 16
+[Int32] maxPlayersInMission = 4
+[Int32] maxPlayersSurvival = 8
+[String] user = 76561198078161440
+[Int32] bonusDay = 0
+[Int32] dayNum = 20618
+[Int32[]] parts = [Массив из 3 элементов]
+[String] _playerName = [122FAA]_03_45_52_55[808080]
+[String] decodePlayerName = [122FAA]Гело[808080]
+[String] _locale = ru_RU
+[Int32] playerNumMaps = 20
+[ObscuredInt[]] cubesTimeOfEnd = [Массив из 6 элементов]
+[ObscuredInt[]] weaponsSkinPrice1 = [Массив из 128 элементов]
+[ObscuredInt[]] weaponsSkinPrice2 = [Массив из 128 элементов]
+[InventarItems] inventarItems = GameParamsScript+InventarItems
+[ObscuredIntAB[]] inventarWeapons = [Массив из 80 элементов]
+[ObscuredInt] playerMoney1 = 667929251
+[ObscuredInt] playerMoney2 = 597
+[ObscuredInt[]] weaponsSkin = [Массив из 128 элементов]
+[ObscuredInt[]] weaponsCurrentSkin = [Массив из 128 элементов]
+[Int32] playerHealth = 7
+[Int32] playerArmor = 7
+[Int32] playerSpeed = 7
+[Int32] playerJump = 7
+[Int32] playerDefend = 7
+[Int32] playerExpPoints = 0
+[UInt32] playerExp = 4230189303
+[Int32] playerFrags = 418534
+[Int32] playerLevel = 851
+[ObscuredInt[]] playerSkins = [Массив из 32 элементов]
+[Int32] playerVoices = 0
+[Single] vipEnd = 6.048E+08
+[Int32] playerSkin = 6
+[Int32[]] inventarSpecItems = [Массив из 32 элементов]
+[Int32] moderType = 0
+[Int32[]] playerIsClothes = [Массив из 128 элементов]
+[Int32[]] playerClothes = [Массив из 128 элементов]
+[Int32[,]] inventarCubesPrice1 = [Массив из 18 элементов]
+[Int32[,]] inventarCubesPrice2 = [Массив из 18 элементов]
+[Int32[]] inventarItemPrice1 = [Массив из 250 элементов]
+[Int32[]] inventarItemPrice2 = [Массив из 250 элементов]
+[Int32[,]] weaponsPrice1 = [Массив из 240 элементов]
+[Int32[,]] weaponsPrice2 = [Массив из 240 элементов]
+[Single[,]] exchangeSpec = [Массив из 24 элементов]
+[Int32] specToMoney = 100
+[Int32[,]] hatPrice = [Массив из 96 элементов]
+[String[]] BonusTypeCode = [Массив из 16 элементов]
+[Single[,]] hatBonus = [Массив из 512 элементов]
+[Int32[,]] skinPrice = [Массив из 96 элементов]
+[Single[,]] skinBonus = [Массив из 512 элементов]
+[Int32[,]] ammunitionPrice = [Массив из 96 элементов]
+[Single[,]] ammunitionBonus = [Массив из 512 элементов]
+[Single[,,]] charParamsPrice = [Массив из 200 элементов]
+[Int32] playerBaseHealth = 100
+[Int32] playerBaseArmor = 100
+[Int32] playerBaseSpeed = 4
+[Int32] playerBaseJump = 4
+[Int32] playerBaseDefend = 0
+[Int32[,,]] bulletsPrice = [Массив из 180 элементов]
+[Single] newMapPrice = 5
+[Int32[,]] bonusesPrice = [Массив из 10 элементов]
+[Int32[,]] vipPrice = [Массив из 6 элементов]
+[Int32] vipBonus = 50
+[Int32[,]] specItemsPrice1 = [Массив из 96 элементов]
+[Int32[,]] specItemsPrice2 = [Массив из 96 элементов]
+[Int32[,]] specBonusesPrice = [Массив из 400 элементов]
+[Int32] _maxAvailableCubes = 27822
+[Int32[,]] clothesPrice = [Массив из 384 элементов]
+[Single[,]] clothesBonus = [Массив из 2048 элементов]
+[PriceValue[,,]] upgradePrice = [Массив из 3840 элементов]
+[FastInventar[]] fastInventarCreating = [Массив из 12 элементов]
+[FastInventar[]] fastInventarWeapon = [Массив из 12 элементов]
+[Int32] codeI = 27922
+[Single] codeF = 5015.726
+[Single] radarZoom = 1
+[Int32] currentSpecBonusNum = -1
+[Boolean] needTraining = False
+[Boolean] needTrainingBuild = False
+[Boolean] initialized = True
+[ArrayList] MessagesStrs = System.Collections.ArrayList
+[ArrayList] SystemMessagesStrs = System.Collections.ArrayList
+[Boolean] showMessages = False
+[Single] messageTime = 7
+[Single] systemMessageTime = 3
+[Int32] codeVarsRandom = 229
+[Int32] _maxAvailableCubes2 = 329
+[Single] mouseSens = 4.52657
+[IntHash] weaponUnlock = 
+[IntHash] itemUnlock = 
+[IntHash] specUnlock = (System.Int32)0=(System.Int32)True
+[IntHash] missionUnlock = 
+[IntHash] charUnlock = 
+[DateTime] nextUnbox = 01/01/1970 00:00:00
+[ClanInfo] <clan>k__BackingField = kube.data.ClanInfo

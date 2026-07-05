@@ -1,0 +1,6 @@
+MissionStateDumper.cs "F8"
+MapTopDumperMod.cs "F10"
+ShopDumperMod.cs   "F11"
+PlayerDumperMod.cs "F12"
+WeaponDumperMod.cs "F7"
+CharacterDumperMod.cs "F6"

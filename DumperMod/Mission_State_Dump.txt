@@ -1,0 +1,33 @@
+==========================================================
+  СОСТОЯНИЕ МИССИИ И БОЕВОГО КОНТРОЛЛЕРА НА ДАННЫЙ МОМЕНТ
+==========================================================
+Время: 52.95794
+Тип игры (GameType): mission
+
+[АКТИВНЫЙ КЛАСС КОНТРОЛЛЕРА]: MissionReachTheExit
+--- ПЕРЕМЕННЫЕ И ИХ ЗНАЧЕНИЯ ---
+[NetworkObjectScript] NO = NetworkObject(Clone) (NetworkObjectScript)
+[Boolean] initialized = True
+[Int32] frags = 1
+[Int32] limit = 0
+[Single] lastCheckMonstersTime = 0
+[Single] lastCheckMonstersDeltaTime = 2
+[Single] lastCheckTransportTime = 51.7218
+[Single] lastCheckTransportDeltaTime = 2
+[Boolean] syncStart = False
+[Vector3] respawnPos = (0.0, 0.0, 0.0)
+[Int32] monsterLimit = 5
+[Int32] monsterTotalLimit = 20
+[Int32] monsterReqLimit = 3
+[Boolean] canRespawn = True
+[Single] lastCheckTransportTime = 0
+
+==========================================================
+  ГЛАВНЫЕ ПЕРЕМЕННЫЕ BATTLE CONTROLLER SCRIPT
+==========================================================
+gameEndTime: 617
+gameStartTime: 17.35689
+missionId: 1
+missionType: reachTheExit
+currentNumMonsters: 5
+currentNumPlayers: 1
